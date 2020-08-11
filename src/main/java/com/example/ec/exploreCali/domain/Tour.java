@@ -1,6 +1,14 @@
 package com.example.ec.exploreCali.domain;
 
-public class Tour {
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@Entity
+public class Tour implements Serializable{
+	@Id
+	@GeneratedValue
+	private int id;
 	private String title;
 	private String description;
 	private String blurb;
@@ -10,8 +18,27 @@ public class Tour {
 	private String keywords;
 	private Region region;
 	private Difficulty difficulty;
+	@ManyToOne
+	private TourPackage tourPackage;
 	
-	
+	//protected => consumers of this class are only able to use fully initialized java obj
+	protected Tour() {
+
+	}
+	public Tour(String title, String description, String blurb, double price, String duration, String bullets,
+			String keywords, Region region, Difficulty difficulty, TourPackage tourPackage) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.blurb = blurb;
+		this.price = price;
+		this.duration = duration;
+		this.bullets = bullets;
+		this.keywords = keywords;
+		this.region = region;
+		this.difficulty = difficulty;
+		this.tourPackage = tourPackage;
+	}
 	public String getTitle() {
 		return title;
 	}
