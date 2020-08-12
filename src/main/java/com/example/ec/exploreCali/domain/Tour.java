@@ -94,6 +94,10 @@ public class Tour implements Serializable{
 		this.difficulty = difficulty;
 	}
 	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.getTitle()+" " +this.getDescription() +" "+this.getDuration();
+	}
 
 }

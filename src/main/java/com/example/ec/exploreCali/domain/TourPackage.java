@@ -39,6 +39,10 @@ public class TourPackage implements Serializable{
 		this.tours = tours;
 	}
 	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.getCode() +" "+ this.getName();
+	}
 
 }
