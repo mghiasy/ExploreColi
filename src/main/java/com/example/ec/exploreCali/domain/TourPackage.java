@@ -19,7 +19,7 @@ public class TourPackage implements Serializable{
 	}
 
 	private String name;
-	private List<Tour> tours;
+	
 	public String getCode() {
 		return code;
 	}
@@ -32,13 +32,7 @@ public class TourPackage implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Tour> getTours() {
-		return tours;
-	}
-	public void setTours(List<Tour> tours) {
-		this.tours = tours;
-	}
-	
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub

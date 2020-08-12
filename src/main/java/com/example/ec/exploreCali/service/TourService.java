@@ -1,8 +1,5 @@
 package com.example.ec.exploreCali.service;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,14 +22,15 @@ public class TourService {
 	}
 	
 	public Tour createTour(String title, String desc,String blurb,int price,String duration,
-							String bullets,String keywords,Region region,Difficulty diffuculty,String tourPackagesCode ) {
-		List<TourPackage> tourPackage = tourPackageRepository.findOne(tourPackagesCode);
+							String bullets,String keywords,Region region,Difficulty diffuculty,String tourPackagesName ) {
+		TourPackage tourPackage = tourPackageRepository.findByName(tourPackagesName);
 		if(tourPackage == null) {
-			throw new RuntimeException("Tour package code does not exist "+tourPackagesCode);
+			throw new RuntimeException("Tour package code does not exist "+tourPackagesName);
 		}
 		else {
+			//optionalType => tourpackage.get
 			
-			Tour tour=new Tour(title,desc,blurb,price,duration,bullets,keywords,region,diffuculty,tourPackage.get(0));
+			Tour tour=new Tour(title,desc,blurb,price,duration,bullets,keywords,region,diffuculty,tourPackage);
 			return tourRepository.save(tour);
 		}
 	}

@@ -10,10 +10,13 @@ public class Tour implements Serializable{
 	@GeneratedValue
 	private int id;
 	private String title;
+	@Column(length = 2000)
 	private String description;
+	@Column(length = 2000)
 	private String blurb;
 	private int price;
 	private String duration;
+	@Column(length = 2000)
 	private String bullets;
 	private String keywords;
 	private Region region;
