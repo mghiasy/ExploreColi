@@ -1,9 +1,23 @@
 package com.example.ec.exploreCali.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class TourPackage {
+import javax.persistence.*;
+@Entity
+public class TourPackage implements Serializable{
+	@Id
 	private String code;
+	public TourPackage(String code, String name) {
+		super();
+		this.code = code;
+		this.name = name;
+	}
+	
+	protected TourPackage() {
+
+	}
+
 	private String name;
 	private List<Tour> tours;
 	public String getCode() {

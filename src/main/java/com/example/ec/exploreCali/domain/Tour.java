@@ -12,7 +12,7 @@ public class Tour implements Serializable{
 	private String title;
 	private String description;
 	private String blurb;
-	private double price;
+	private int price;
 	private String duration;
 	private String bullets;
 	private String keywords;
@@ -25,7 +25,7 @@ public class Tour implements Serializable{
 	protected Tour() {
 
 	}
-	public Tour(String title, String description, String blurb, double price, String duration, String bullets,
+	public Tour(String title, String description, String blurb, int price, String duration, String bullets,
 			String keywords, Region region, Difficulty difficulty, TourPackage tourPackage) {
 		super();
 		this.title = title;
@@ -60,7 +60,7 @@ public class Tour implements Serializable{
 	public double getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	public String getDuration() {
