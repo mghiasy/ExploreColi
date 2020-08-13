@@ -4,14 +4,15 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import com.example.ec.exploreCali.domain.TourPackage;
 
 public interface TourPackageRepository extends CrudRepository<TourPackage, String>{
 
 	//no need to implement it => findBy+fieldName => hibernate do the query automatically
-	TourPackage findByName(String tourPackagesName);
-
-	//List<TourPackage> findOne(String tourPackagesCode);
+	
+	//to use in postman: "http://localhost:8080/tourPackages/search/findByName?tourPackagesName=Backpack Cal"
+	TourPackage findByName(@Param("name") String tourPackagesName);
 
 }
